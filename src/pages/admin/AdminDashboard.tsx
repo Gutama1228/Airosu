@@ -1,4 +1,3 @@
-// src/pages/admin/AdminDashboard.tsx
 import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 
@@ -19,11 +18,9 @@ export const AdminDashboard = () => {
       </div>
       <div className="bg-white p-6 rounded-xl shadow">
         <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
-        <div className="flex gap-4">
-          <Button variant="primary" href="/admin/prompts">
-            Manage AI Prompts
-          </Button>
-        </div>
+        <Button variant="primary" href="/admin">
+          Refresh Dashboard
+        </Button>
       </div>
     </div>
   );
