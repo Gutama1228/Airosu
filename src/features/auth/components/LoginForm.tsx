@@ -1,4 +1,3 @@
-// src/features/auth/components/LoginForm.tsx
 export const LoginForm = () => {
   return (
     <div className="max-w-md mx-auto mt-12 p-6 bg-white rounded shadow">
