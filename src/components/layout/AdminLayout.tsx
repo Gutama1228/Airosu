@@ -1,6 +1,6 @@
 // src/components/layout/AdminLayout.tsx
 import { Outlet } from 'react-router-dom';
-import { Header } from '../Header';
+import { Header } from './Header';
 import { AdminSidebar } from './AdminSidebar';
 
 export const AdminLayout = () => {
@@ -9,7 +9,7 @@ export const AdminLayout = () => {
       <AdminSidebar />
       <div className="flex flex-col flex-1">
         <Header />
-        <main className="flex-1 p-4 md:p-8 bg-gray-50">
+        <main className="flex-1 p-4 md:p-8">
           <Outlet />
         </main>
       </div>
