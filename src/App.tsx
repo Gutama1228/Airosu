@@ -1,6 +1,6 @@
 // src/App.tsx
 import { RouterProvider } from 'react-router-dom';
-import appRouter from './app/routes/AppRoutes';
+import appRouter from './app/routes/AppRoutes.tsx';
 import { AuthProvider } from './app/providers/AuthProvider';
 import { ThemeProvider } from './app/providers/ThemeProvider';
 
