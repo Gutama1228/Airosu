@@ -1,9 +1,16 @@
-// src/App.tsx
-import { RouterProvider } from 'react-router-dom';
-import appRouter from './app/routes/AppRoutes.tsx';
+// src/app/routes/AppRoutes.tsx
+import { createBrowserRouter } from 'react-router-dom';
+import App from '../../App';
+import { HomePage } from '../../pages/public/HomePage';
 
-function App() {
-  return <RouterProvider router={appRouter} />;
-}
+const appRouter = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    children: [
+      { index: true, element: <HomePage /> },
+    ],
+  },
+]);
 
-export default App; // ✅ WAJIB ADA
+export default appRouter;
