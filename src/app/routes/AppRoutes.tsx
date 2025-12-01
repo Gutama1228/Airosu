@@ -1,31 +1,30 @@
 // src/app/routes/AppRoutes.tsx
 import { createBrowserRouter } from 'react-router-dom';
-import { App } from '../../App';
+import App from '../../App';
 import { HomePage } from '../../pages/public/HomePage';
 import { PlaygroundPage } from '../../pages/public/PlaygroundPage';
 import { AdminDashboard } from '../../pages/admin/AdminDashboard';
-import { ManagePrompts } from '../../pages/admin/ManagePrompts';
 import { LoginForm } from '../../features/auth/components/LoginForm';
-import { AdminLayout } from '../../components/layout/AdminLayout';
 import { PublicLayout } from '../../components/layout/PublicLayout';
+import { AdminLayout } from '../../components/layout/AdminLayout';
 import { AuthGuard } from '../../features/auth/components/AuthGuard';
 
-const router = createBrowserRouter([
+const appRouter = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     children: [
-      // Public routes
+      // Public
       {
         element: <PublicLayout />,
         children: [
-          { path: '/', element: <HomePage /> },
-          { path: '/playground', element: <PlaygroundPage /> },
+          { index: true, element: <HomePage /> },
+          { path: 'playground', element: <PlaygroundPage /> },
         ],
       },
-      // Admin routes
+      // Admin
       {
-        path: '/admin',
+        path: 'admin',
         element: (
           <AuthGuard>
             <AdminLayout />
@@ -33,15 +32,13 @@ const router = createBrowserRouter([
         ),
         children: [
           { index: true, element: <AdminDashboard /> },
-          { path: 'prompts', element: <ManagePrompts /> },
-          { path: 'users', element: <div>Manage Users</div> },
-          { path: 'settings', element: <div>Settings</div> },
+          { path: 'prompts', element: <div>Manage Prompts</div> },
         ],
       },
-      // Auth routes
+      // Auth
       { path: '/login', element: <LoginForm /> },
     ],
   },
 ]);
 
-export default router;
+export default appRouter;
